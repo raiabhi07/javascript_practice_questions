@@ -1,0 +1,140 @@
+16.Find Occurance of a target value in given array;
+arr= [19, 22, 18, 19, 16, 18, 19, 21, 24];
+target = 19;
+
+code--
+var arr= [19, 22, 18, 19, 16, 18, 19, 21, 24];
+var count=arr.filter(ele=>ele==19);
+count.length
+
+17.Reverse a given string using reverse() method 
+input = "BrainMentors"
+output = "srotnemniarB"
+
+code--
+var str="BrainMentors"
+var rev=str.split("").reverse().join("");
+rev
+
+18.Write a function that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
+Count of vowels in string;
+ex:- str = "brainmentors"
+		output: count = 4
+
+code--
+var str = "BrainMentors";
+var arr = str.split("");
+var vowels = arr.filter(e => (e == 'a' || e == 'e' || e == 'i' || e == 'o' || e == 'u'));
+vowels.length;
+
+19.Write a function to find the sum of all elements in an array.
+ex:- arr = [1,2,3,4,5];
+
+output = 15;
+
+code--
+var arr =[1,2,3,4,5]
+var sum=arr.reduce((a,b)=>a+b);
+sum
+
+20.Write a function to reverse the order of elements in an array.
+don't Use reverse() Method 
+ex:- var arr = ['a','b','c','d','e','f']
+			
+		output = ['f','e','d','c','b','a']
+
+code--
+var arr = ['a','b','c','d','e','f']
+var rev=[]
+for(var i=arr.length-1; i>0;i--)
+    {
+        rev[arr.length-i]=arr[i];
+    }
+
+21.Write a function to remove a specific element from an array.
+
+	arr = [1,2,3,4,5];
+	remove = 3
+
+	output :- [1,2,4,5]
+
+code--
+var arr =  [1,2,3,4,5];
+arr.filter(e=>e!=3);
+arr
+
+22.Write a function to find the second largest number in an array.
+
+ex:- var arr = [12,4,6,9,2,15,3,9];
+		
+		output second largest : 12
+
+code--
+function secondlargest(arr){
+   var sec=0;
+    var lar=Number.MIN_VALUE;
+    for(var i of arr){
+        if(i>lar){
+            sec=lar;
+            lar=i;
+            
+        }
+        if(i<lar&&sec<i){
+           sec=i; 
+        }
+    }
+    console.log(sec);
+}
+var arr=[10,20,30,40,50];
+secondlargest(arr);
+
+23.Write a function to rotate an array by a given number of steps to the right.
+
+ex:- arr = [1,2,3,4,5];
+		step = 2;
+
+ output = [5,4,1,2,3]
+
+code--
+function rotate(arr,j){
+    var len=arr.length;
+    var arr1=[];
+    var i;
+    for(i=len-1;i>len-1-j;i--){
+       arr1.push(arr[i]); 
+    }
+    for(var k=0;k<len-j;k++){
+        arr1.push(arr[k]);
+    }
+    console.log(arr1);
+}
+var arr=[1,2,3,4,5];
+ rotate(arr,2);
+
+24.Write a function to find the intersection of two arrays (common elements between the two arrays).
+
+ex:- arr1 = [2,4,1,7,4,2] , arr2 = [5,1,4,7,3,1];
+
+output = [1,4,7]
+
+code--
+arr1 = [2,4,1,7,4,2];
+arr2 = [5,1,4,7,3,1];
+var intersect=arr1.filter(x=>arr2.includes(x));
+intersect;
+
+25.Write a function to remove duplicate elements from an array while preserving the original order.
+	ex:- arr = [1,2,5,2,5,1,6,7,7]
+
+		output:- [1,2,5,6,7]
+
+code--
+function duplicate(arr) {
+  return arr.filter(function(val, index, self) {
+    return self.indexOf(val) === index;
+  });
+}
+
+var arr = [1, 2, 5, 2, 5, 1, 6, 7, 7];
+var output = duplicate(arr);
+output;

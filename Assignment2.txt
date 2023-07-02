@@ -1,0 +1,113 @@
+6.Write a JavaScript function that Print Sum of Even Place and Odd Place Digit
+E.g num = 2914
+O/p Even Place (9+4)
+Odd Place 2+1
+
+code--
+function sum(num){
+    var evenSum=0;
+    var oddSum=0;
+    var tempnum=num
+    var count=0;
+    while(tempnum>0){
+        tempnum=tempnum/10;
+        count++;
+    }
+    for(var i=count;i>=1;i--){
+        if(i%2==0){
+            var evenSum=parseInt(evenSum+(num%10));
+            
+                }
+        else{
+            var oddSum=parseInt(oddSum+(num%10));
+            
+                }
+        num=num/10;
+    }
+    console.log('Even Sum is ',evenSum);
+    console.log('Odd Sum is ',oddSum);
+}
+
+7.Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.
+Example string : ‘learn javascript from brain mentors’
+Expected Output : ‘Learn Javascript From Brain Mentors
+
+code--
+var x="learn javascript from brain mentors";
+var e=x.split(" ");
+for(var i=0;i<e.length;i++){
+    e[i]=e[i].charAt(0).toUpperCase()+e[i].slice(1)}
+e.join(" ");
+
+8.Write a JS Function to validate Phone Number 
+Only number and must be 10 digit long
+
+code--
+function validate(num){
+    var tempnum=num;
+    var count=0;
+    while(tempnum>0){
+        tempnum=tempnum/10;
+        count++;
+    }
+    if(typeof num === 'number'){
+    if(count==10){
+        console.log('Valid Number');
+    }
+    else{
+        console.log('Enter 10 digit number');
+}
+}else{
+    console.log('Invalid , Entered String');
+}
+}
+
+9.Write a JS Function to validate Email Address
+Must contains @
+Must ends with .com/.org/.edu
+
+code--
+function emailValidation(email)
+{
+    if(email.includes('@')){
+                      if(email.endsWith('.com')||email.endsWith('.org')||email.endsWith('.edu.in')){
+                          console.log('Valid Email');
+                      }
+        else{
+            console.log('Email must end with .com, .org, .edu ');
+        }
+    }
+    else{
+        console.log('Email must include @');
+    }
+}
+
+10.Write a JS Function to find the occurrence of each character in JS
+Input : “brain mentors”
+O/P : b 1
+r 2
+A 1
+I 1
+N 2
+M 1
+E 1
+T 1
+O 1
+S 1
+
+code--
+function occurence_method2(str){
+    var obj={};
+    var len=str.length;
+    for(var i=0;i<len;i++){
+        if(obj[str[i]]=== undefined){
+            obj[str[i]]=1;
+        }
+        else{
+            obj[str[i]]=obj[str[i]]+1;
+        }
+    }
+    for(var key in obj){
+        console.log(key,obj[key]);
+    }
+}
