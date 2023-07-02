@@ -1,0 +1,469 @@
+1.Write a JavaScript program to display the current day and time in the following format.
+Today is : wednesday.
+Current time is : 10 PM : 30 : 38
+
+code--
+function day(){
+    var date=new Date();
+    var day=date.getDay();
+    var days=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+    console.log("Today is : ",days[day]);
+    var time=parseInt(date.getHours());
+    var hour;
+    if(time>12) {
+        hour=time-12;
+    }
+        else{
+            hour=time;
+        }
+        
+    var format;
+    if(time<12){
+        format='AM'
+    }
+    else{
+        format='PM'
+    }
+    
+    console.log("Current time is : "+hour+" : "+format+" : "+date.getMinutes()+" : "+date.getSeconds());
+    
+}
+
+2.Write a JavaScript program to get the current date.
+Expected Output :
+mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy
+
+code--
+function date(){
+    var date1=new Date();
+    var currentDate=date1.getDate();
+    var month=date1.getMonth();
+    var year=date1.getYear();
+    console.log(currentDate+"-"+month+"-"+year+",  "+month+"/"+currentDate+"/"+year);
+}
+
+3.WAP to print area and perimeter of rectangle , taking input from the user , using prompt
+
+code--
+function ap(){
+    var length=parseInt(prompt('Enter length: '));
+    var breadth=parseInt(prompt('Enter Breadth: '));
+    var area=length*breadth;
+    var perimeter=2*(length+breadth);
+    console.log(`Area is : ${area} and Perimeter is : ${perimeter}`);
+}
+
+4.WAP to rotate the string ‘brainmentors in the right direction. This is done by periodically removing one letter from the string end and attaching it to the front.
+
+input  = brainmentors
+
+output = sbrainmentor
+
+code--
+var  x='brainmentors';
+var x1=x;
+var x2="";
+var length=x.length;
+function rotate(){
+    for(var i=length-1;i>=0;i--){
+        x2=x1[i]+x2;
+        var value=x2+x.substring(0,i);
+        console.log(value);
+    }
+}
+
+5.WAP to find out if 1st January will be a Sunday between 2000 and 2030
+
+code--
+function check(){
+    for(var i=2000;i<2030;i++){
+        var date=new Date(i,0,1);
+        if(date.getDay()==0){
+            console.log(i);
+        }
+    }
+}
+
+6.Write a JavaScript function that Print Sum of Even Place and Odd Place Digit
+E.g num = 2914
+O/p Even Place (9+4)
+Odd Place 2+1
+
+code--
+function sum(num){
+    var evenSum=0;
+    var oddSum=0;
+    var tempnum=num
+    var count=0;
+    while(tempnum>0){
+        tempnum=tempnum/10;
+        count++;
+    }
+    for(var i=count;i>=1;i--){
+        if(i%2==0){
+            var evenSum=parseInt(evenSum+(num%10));
+            
+                }
+        else{
+            var oddSum=parseInt(oddSum+(num%10));
+            
+                }
+        num=num/10;
+    }
+    console.log('Even Sum is ',evenSum);
+    console.log('Odd Sum is ',oddSum);
+}
+
+7.Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.
+Example string : ‘learn javascript from brain mentors’
+Expected Output : ‘Learn Javascript From Brain Mentors
+
+code--
+var x="learn javascript from brain mentors";
+var e=x.split(" ");
+for(var i=0;i<e.length;i++){
+    e[i]=e[i].charAt(0).toUpperCase()+e[i].slice(1)}
+e.join(" ");
+
+8.Write a JS Function to validate Phone Number 
+Only number and must be 10 digit long
+
+code--
+function validate(num){
+    var tempnum=num;
+    var count=0;
+    while(tempnum>0){
+        tempnum=tempnum/10;
+        count++;
+    }
+    if(typeof num === 'number'){
+    if(count==10){
+        console.log('Valid Number');
+    }
+    else{
+        console.log('Enter 10 digit number');
+}
+}else{
+    console.log('Invalid , Entered String');
+}
+}
+
+9.Write a JS Function to validate Email Address
+Must contains @
+Must ends with .com/.org/.edu
+
+code--
+function emailValidation(email)
+{
+    if(email.includes('@')){
+                      if(email.endsWith('.com')||email.endsWith('.org')||email.endsWith('.edu.in')){
+                          console.log('Valid Email');
+                      }
+        else{
+            console.log('Email must end with .com, .org, .edu ');
+        }
+    }
+    else{
+        console.log('Email must include @');
+    }
+}
+
+10.Write a JS Function to find the occurrence of each character in JS
+Input : “brain mentors”
+O/P : b 1
+r 2
+A 1
+I 1
+N 2
+M 1
+E 1
+T 1
+O 1
+S 1
+
+code--
+function occurence_method2(str){
+    var obj={};
+    var len=str.length;
+    for(var i=0;i<len;i++){
+        if(obj[str[i]]=== undefined){
+            obj[str[i]]=1;
+        }
+        else{
+            obj[str[i]]=obj[str[i]]+1;
+        }
+    }
+    for(var key in obj){
+        console.log(key,obj[key]);
+    }
+}
+
+11.Write a function calculate that takes three arugments from the user, say num1 , num2, and operation(1==add, 2==subtract, 
+3==multiply, 4==divide ).Don`t use switch statement or if else statements
+ 
+1.add,
+2.subtract,
+3.multiply,
+4.divide 
+
+write the calc function for all the operations
+
+code--
+function calculate(){
+    var num1=parseInt(prompt('Enter 1st number'));
+    var num2=parseInt(prompt('Enter 2nd Number'));
+    var op=parseInt(prompt('Enter operation to be performed 1=add, 2=sub,3=multiply,4=divide'));
+    function add(){
+        return num1+num2;
+    }
+    function sub(){
+        return num1-num2;
+    }
+    function multiply(){
+        return num1*num2;
+    }
+    function divide(){
+        return num1/num2
+    }
+    var obj={1:add(),2:sub(),3:multiply(),4:divide()};
+    return obj[op];
+}
+
+12.Create a function Named Triangle which takes 3 parameters, say A, B and C denoting the 3 sides of a triangle.
+Use Callback function, create a method to check if the triangle is Equilateral or not.
+
+
+Output:
+"true" if the triangle is equilateral and "false" if its not.
+
+code--
+function checkequilateral(a,b,c){
+   return (a==b && b==c)?true:false;
+}
+function triangle(a,b,c,fn){
+    if(fn(a,b,c)){
+        console.log('True');
+    }
+    else{
+        console.log('false');
+    }
+}
+
+13.Given two strings, return true if they are anagrams of one another
+
+For example: Mary is an anagram of Army
+
+code--
+function checkAnagram(str1,str2){
+    for(var i=0;i<str1.length;i++){
+        var ch=str1.charAt(i);var count=0;
+        for(var j=0;j<str2.length;j++){
+            if(ch===str2[i]){
+                count++;
+            }
+        }
+       
+    }
+     if(count===str1.length){
+            console.log('It is Anagram');
+        }
+        else{
+            console.log('It is not a Anagram');
+        }
+}
+
+14.Create a function Employee, having id, name, basic_Salary as arguments.
+
+Compute HRA, DA, TA, GS, NS.
+
+HRA is 30% of Basic Salary.
+DA is 10% of Basic Salary.
+TA is 20% of Basic Salary.
+
+GS = Basic Salary + HRA + DA + TA;
+
+TAX DEDUCTION is 10% of GS.
+
+NS = GS - TAX DEDUCTION.
+
+NOte : Use Basic Salary in Lexical Scope 
+Print salary slip of the employee.
+
+code--
+function employee(id,name,basic_salary){
+    var hra,da,ta;
+    function compute(){
+         hra=0.3*basic_salary;
+         da=0.10*basic_salary;
+         ta=0.20*basic_salary;
+        var gs=basic_salary+hra+da+ta;
+    var tax=0.10*gs;
+    var net_salary=gs-tax;
+    console.log(`id: ${id} name:${name} net_salary:${net_salary}`);
+    }
+    
+    return {compute};
+}
+
+15.Write a function to find the maximum and minimum elements in an array.
+arr = [10,3,15,-1,9,6]
+
+output = maxno. : 15
+			minno. : -1
+
+code--
+function minmax(){
+var arr = [10,3,15,-1,9,6];
+    var min=0;var max=0;
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+        if(arr[i]<min){
+            min=arr[i];
+        }
+    }
+    console.log("Max ",max);
+    console.log("Min ",min);
+}
+
+16.Find Occurance of a target value in given array;
+arr= [19, 22, 18, 19, 16, 18, 19, 21, 24];
+target = 19;
+
+code--
+var arr= [19, 22, 18, 19, 16, 18, 19, 21, 24];
+var count=arr.filter(ele=>ele==19);
+count.length
+
+17.Reverse a given string using reverse() method 
+input = "BrainMentors"
+output = "srotnemniarB"
+
+code--
+var str="BrainMentors"
+var rev=str.split("").reverse().join("");
+rev
+
+18.Write a function that takes a string as input and returns the number of vowels (a, e, i, o, u) in the string.
+Count of vowels in string;
+ex:- str = "brainmentors"
+		output: count = 4
+
+code--
+var str = "BrainMentors";
+var arr = str.split("");
+var vowels = arr.filter(e => (e == 'a' || e == 'e' || e == 'i' || e == 'o' || e == 'u'));
+vowels.length;
+
+19.Write a function to find the sum of all elements in an array.
+ex:- arr = [1,2,3,4,5];
+
+output = 15;
+
+code--
+var arr =[1,2,3,4,5]
+var sum=arr.reduce((a,b)=>a+b);
+sum
+
+20.Write a function to reverse the order of elements in an array.
+don't Use reverse() Method 
+ex:- var arr = ['a','b','c','d','e','f']
+			
+		output = ['f','e','d','c','b','a']
+
+code--
+var arr = ['a','b','c','d','e','f']
+var rev=[]
+for(var i=arr.length-1; i>0;i--)
+    {
+        rev[arr.length-i]=arr[i];
+    }
+
+21.Write a function to remove a specific element from an array.
+
+	arr = [1,2,3,4,5];
+	remove = 3
+
+	output :- [1,2,4,5]
+
+code--
+var arr =  [1,2,3,4,5];
+arr.filter(e=>e!=3);
+arr
+
+22.Write a function to find the second largest number in an array.
+
+ex:- var arr = [12,4,6,9,2,15,3,9];
+		
+		output second largest : 12
+
+code--
+function secondlargest(arr){
+   var sec=0;
+    var lar=Number.MIN_VALUE;
+    for(var i of arr){
+        if(i>lar){
+            sec=lar;
+            lar=i;
+            
+        }
+        if(i<lar&&sec<i){
+           sec=i; 
+        }
+    }
+    console.log(sec);
+}
+var arr=[10,20,30,40,50];
+secondlargest(arr);
+
+23.Write a function to rotate an array by a given number of steps to the right.
+
+ex:- arr = [1,2,3,4,5];
+		step = 2;
+
+ output = [5,4,1,2,3]
+
+code--
+function rotate(arr,j){
+    var len=arr.length;
+    var arr1=[];
+    var i;
+    for(i=len-1;i>len-1-j;i--){
+       arr1.push(arr[i]); 
+    }
+    for(var k=0;k<len-j;k++){
+        arr1.push(arr[k]);
+    }
+    console.log(arr1);
+}
+var arr=[1,2,3,4,5];
+ rotate(arr,2);
+
+24.Write a function to find the intersection of two arrays (common elements between the two arrays).
+
+ex:- arr1 = [2,4,1,7,4,2] , arr2 = [5,1,4,7,3,1];
+
+output = [1,4,7]
+
+code--
+arr1 = [2,4,1,7,4,2];
+arr2 = [5,1,4,7,3,1];
+var intersect=arr1.filter(x=>arr2.includes(x));
+intersect;
+
+25.Write a function to remove duplicate elements from an array while preserving the original order.
+	ex:- arr = [1,2,5,2,5,1,6,7,7]
+
+		output:- [1,2,5,6,7]
+
+code--
+function duplicate(arr) {
+  return arr.filter(function(val, index, self) {
+    return self.indexOf(val) === index;
+  });
+}
+
+var arr = [1, 2, 5, 2, 5, 1, 6, 7, 7];
+var output = duplicate(arr);
+output;
